@@ -1,9 +1,15 @@
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
 body {
     background-color: seagreen;
     font-size: 20px;
     font-family: 'Roboto Slab', serif;
     margin: 0;
     border: 0;
+    height: 100%;
 }
 
 p {
@@ -58,7 +64,17 @@ td {
 }
 
 #block3 {
+    box-sizing: border-box;
+    margin: 0;
+    border: 0px solid black;
+    padding-bottom: 50%;
     background-color: #acbebe;
+    height:100%;
+    padding: 0;
+}
+
+#textin3 {
+    margin: 0;
 }
 
 #block4 {
@@ -79,7 +95,6 @@ td {
 #block6 {
     color: black;
     background-color: #acbebe;
-    height: 20%;
 }
 
 #block7 {
@@ -108,13 +123,18 @@ td {
     word-break: normal;
     min-width: fit-content;
 }
-#idfor4{
-    align-items:start;
+#tablein5{
     height: 100%;
 }
-#idfor6{
-    align-items: end;
+table{
+    height:100%;
+    border-collapse: collapse;
 }
-#members{
-    height: 80%;
+#td4, #td3{
+    margin: 0;
+    padding: 0;
+    height: fit-content;
+}
+td, tr, tbody{
+    height: fit-content;
 }
