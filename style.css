@@ -1,9 +1,6 @@
 html {
     background-color: seagreen;
-    font-size: 20px; /* px значит 'пиксели': базовый шрифт будет 10 пикселей в высоту  */
-    /* font-family: 'Didact Gothic', sans-serif;
-    font-family: 'Questrial', sans-serif;
-    font-family: 'Roboto', sans-serif; */
+    font-size: 20px;
     font-family: 'Roboto Slab', serif;
 }
 body{
@@ -50,6 +47,8 @@ a{
 }
 
 #block1 {
+  display: flex;
+  align-items: center;
   background-color: #A01D26;
   padding-left: 4.17%;
   grid-row: 1/7;
