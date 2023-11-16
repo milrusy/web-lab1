@@ -8,12 +8,15 @@
 		 
 		<title>Rammstein</title>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="Rammstein">
 	</head>
 	<body>
+		
 		<div id="grid">
 			<div class = "blocks" id = "block1">
 				<img id = "logo" src = "images/Rammstein_logo_2.svg.png"/>
+				<div id="formContainerblock1"></div>
 			</div>
 			
 			<h2 id = "box1">Rammstein</h2>
@@ -47,8 +50,38 @@
 					</p>
 					
 				</ol>
+
+				<div>
+					<label for="blockSelector">Оберіть блок для форми:</label>
+					<select id="blockSelector" onchange="createForm()">
+						<option value="block1">Блок 1</option>
+						<option value="block2">Блок 2</option>
+						<option value="block3">Блок 3</option>
+						<option value="block4">Блок 4</option>
+						<option value="block5">Блок 5</option>
+						<option value="block6">Блок 6</option>
+						<option value="block7">Блок 7</option>
+					</select>
+				</div>
+
+				<div id="formContainerblock2"></div>
+
+				<form onchange="changeAlignment2()">
+					<label>
+						<input type="radio" name="alignment2" value="true"> Виконувати вирівнювання зправа при mouse out
+					</label>
+					<br>
+					<label>
+						<input type="radio" name="alignment2" value="false"> Не виконувати
+					</label>
+				</form>
+				  
+
 			</div>
-			<div class = "blocks" id = "block3"><h2>About Rammstein</h2></div>
+			<div class = "blocks" id = "block3">
+				<h2>About Rammstein</h2>
+				<div id="formContainerblock3"></div>
+			</div>
 			<div class = "blocks" id = "block4">
 				<ul>
 					<strong>Members</strong>
@@ -61,6 +94,20 @@
 						<li>Oliver Riedel</li>
 					</p>
 				</ul>
+				
+				<div id="formContainerblock4"></div>
+
+				<form>
+					<label>
+					  <input type="radio" name="alignment4" value="true" onclick="changeAlignment4()"> Виконувати вирівнювання зправа при mouse out
+					</label>
+					<br>
+					<label>
+					  <input type="radio" name="alignment4" value="false" onclick="changeAlignment4()"> Не виконувати
+					</label>
+				</form>
+				  
+
 			</div>
 			<div class = "blocks" id = "block5">Rammstein (German pronunciation: [ˈʁamʃtaɪn], lit. "ramming stone") is a German Neue Deutsche Härte band formed in Berlin in 1994. The band's lineup—consisting of lead vocalist Till Lindemann, lead guitarist Richard Kruspe, rhythm guitarist Paul Landers, bassist Oliver Riedel, drummer Christoph Schneider, and keyboardist Christian "Flake" Lorenz—has remained unchanged throughout their history, along with their approach to songwriting, which consists of Lindemann writing and singing the lyrics over instrumental pieces the rest of the band has completed beforehand. Prior to their formation, some members were associated with the punk rock acts Feeling B and First Arsch.
 				
@@ -71,18 +118,306 @@
 					<area shape = "rect" coords = "110, 123.5, 220, 247.5" href="https://open.spotify.com/album/1LoyJQVHPLHE3fCCS8Juek?autoplay=true"/>
 				</map>
 				<img id = "album" usemap="#primary" src="images/2gTUCYwQshCCxmhugNn6aK.jpg"/>
+				<div>
+					<form id="numberForm">
+						<label for="numberInput">Введіть натуральне число:</label>
+						<input type="number" id="numberInput" required>
+						<button type="button" onclick="findMaxDigit()">Знайти максимальну цифру</button>
+					</form>
+				</div>
+				<div id="formContainerblock5"></div>
+				<div>
+					<form>
+						<label>
+						  <input type="radio" name="alignment5" value="true" onclick="changeAlignment5()"> Виконувати вирівнювання зправа при mouse out
+						</label>
+						<br>
+						<label>
+						  <input type="radio" name="alignment5" value="false" onclick="changeAlignment5()"> Не виконувати
+						</label>
+					</form>
+					  
+				</div>
+
 			</div>
-			<div class = "blocks" id = "block6">Universal Music Group</div>
-			<div class = "blocks" id = "block7">
+			<div class = "blocks" id = "block6">
+				<div>Universal Music Group</div>
+				<div id="formContainerblock6"></div>
 				
 			</div>
-			<i id = "text2">
-				since 1994
-			</i>
+			<div class = "blocks" id = "block7">
+				<div id="formContainerblock7"></div>
+				</div>
+				<i id = "text2">
+					since 1994
+				</i>
+				
+				<h3 id = "box2">
+					Berlin, Germany
+				</h3>
+			</div>
+		<script>
+			function calculateParallelogramArea(base, height) {
+				var area = base * height;
+				return area;
+			}
+		
+			var baseLength = 5;
+			var heightLength = 10;
+		
+			var result = calculateParallelogramArea(baseLength, heightLength);
+		
+			var block5 = document.getElementById("block5");
+			var block5Content = block5.innerHTML;
+			block5.innerHTML = block5Content + "Площа паралелограма: " + result;
+		
+			function swapBlocks() {
+				var block3 = document.getElementById("block3");
+				var block6 = document.getElementById("block6");
+		
+				var block3Content = block3.innerHTML;
+				block3.innerHTML = block6.innerHTML;
+				block6.innerHTML = block3Content;
+			}
+		
+			window.addEventListener('load', swapBlocks);
+		
+			function findMaxDigit() {
+				// Отримання значення з форми
+				var inputValue = document.getElementById("numberInput").value;
+		
+				// Перевірка на валідність та на те, чи введено натуральне число
+				if (!inputValue || isNaN(inputValue) || parseInt(inputValue) <= 0) {
+					alert("Будь ласка, введіть валідне натуральне число.");
+					return;
+				}
+		
+				// Обчислення максимальної цифри
+				var maxDigit = Math.max(...inputValue.toString().split('').map(Number));
+		
+				// Виведення результату в діалоговому вікні
+				alert("Максимальна цифра: " + maxDigit);
+		
+				// Збереження у cookies
+				document.cookie = "maxDigit=" + maxDigit;
+		
+				// Виведення збереженої інформації при оновленні сторінки
+				showAlert();
+			}
+		
+			// Функція для видалення cookies та перезавантаження сторінки
+			function deleteCookiesAndReload() {
+				document.cookie = "maxDigit=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+				alert("Cookies видалено. Сторінка буде перезавантажена.");
+				location.reload();
+			}
+		
+			// Функція для виведення інформації з cookies
+			function showAlert() {
+				var maxDigit = getCookie("maxDigit");
+				if (maxDigit) {
+					alert("Інформація з cookies: Максимальна цифра - " + maxDigit);
+				}
+			}
+		
+			// Функція для отримання значення з cookies
+			function getCookie(name) {
+				var match = document.cookie.match(new RegExp(name + '=([^;]+)'));
+				return match ? match[1] : undefined;
+			}
+		
+			// Викликаємо функцію після завантаження сторінки
+			window.addEventListener('load', function () {
+				showAlert();
+				var maxDigit = getCookie("maxDigit");
+				if (maxDigit) {
+					deleteCookiesAndReload();
+				}
+				var alignment2 = localStorage.getItem('alignmentChoice2');
+				var alignment4 = localStorage.getItem('alignmentChoice4');
+				var alignment5 = localStorage.getItem('alignmentChoice5');
+				if(alignment2){
+					if(alignment2 === "true"){
+						document.querySelector('input[name="alignment2"][value="true"]').checked = true;
+					}
+					else{
+						document.querySelector('input[name="alignment2"][value="false"]').checked = true;
+					}
+				}
+				if(alignment4){
+					if(alignment4==="true"){
+						document.querySelector('input[name="alignment4"][value="true"]').checked = true;
+					}
+					else{
+						document.querySelector('input[name="alignment4"][value="false"]').checked = true;
+					}
+				}
+				if(alignment5){
+					if(alignment5==="true"){
+						document.querySelector('input[name="alignment5"][value="true"]').checked = true;
+					}
+					else{
+						document.querySelector('input[name="alignment5"][value="false"]').checked = true;
+					}
+				}
+				changeAlignment2();
+				changeAlignment4();
+				changeAlignment5();
+			});
+		
+
+			   // Функція для зміни вирівнювання блоків
+		function changeAlignment2() {
+			var alignmentChoice = document.querySelector('input[name="alignment2"]:checked');
+			var block2 = document.getElementById("block2");
+
+			// Видалення попередніх обробників подій
 			
-			<h3 id = "box2">
-				Berlin, Germany
-			</h3>
-		</div>
+			localStorage.setItem('alignmentChoice2', alignmentChoice.value);
+			if (alignmentChoice.value === "true") {
+				// Додавання нових обробників подій
+				block2.addEventListener("mouseout", handleMouseOut);
+				block2.addEventListener("mouseover", handleMouseOver);
+			} else {
+				// Якщо обрано "false", повертаємо вирівнювання по замовчуванню
+				block2.style.textAlign = "";
+				block2.addEventListener("mouseout", handleMouseOver);
+			}
+
+			function handleMouseOut() {
+				block2.style.textAlign = "right";
+			}
+
+			function handleMouseOver() {
+				block2.style.textAlign = "";
+			}
+		}
+
+
+		function changeAlignment4() {
+			// Отримання значення вибору користувача
+			var alignmentChoice = document.querySelector('input[name="alignment4"]:checked');
+
+			// Перевірка, чи обрано значення
+			if (alignmentChoice) {
+				// Зміна вирівнювання для блока "5"
+				var block4 = document.getElementById("block4");
+
+				if (alignmentChoice.value === "true") {
+					// Якщо обрано "true", встановлюємо вирівнювання зправа та слухача mouseout
+					block4.addEventListener("mouseout", handleMouseOut);
+					block4.addEventListener("mouseover", handleMouseOver)
+				} else {
+					// Якщо обрано "false", повертаємо вирівнювання по замовчуванню та видаляємо слухача mouseout
+					block4.style.textAlign = "";
+					block4.addEventListener("mouseout", handleMouseOver);
+				}
+
+				// Збереження вибору користувача в localStorage
+				localStorage.setItem('alignmentChoice4', alignmentChoice.value);
+			}
+
+			// Функція обробки події mouseout
+			function handleMouseOut() {
+				// Вирівнювання зправа при mouseout
+				block4.style.textAlign = "right";
+			}
+			function handleMouseOver() {
+				block4.style.textAlign = "";
+			}
+		}
+		function changeAlignment5() {
+			// Отримання значення вибору користувача
+			var alignmentChoice = document.querySelector('input[name="alignment5"]:checked');
+
+			// Перевірка, чи обрано значення
+			if (alignmentChoice) {
+				// Зміна вирівнювання для блока "5"
+				var block5 = document.getElementById("block5");
+
+				if (alignmentChoice.value === "true") {
+					// Якщо обрано "true", встановлюємо вирівнювання зправа та слухача mouseout
+					block5.addEventListener("mouseout", handleMouseOut);
+					block5.addEventListener("mouseover", handleMouseOver);
+				} else {
+					// Якщо обрано "false", повертаємо вирівнювання по замовчуванню та видаляємо слухача mouseout
+					block5.style.textAlign = "";
+					block5.addEventListener("mouseout", handleMouseOver);
+				}
+
+				// Збереження вибору користувача в localStorage
+				localStorage.setItem('alignmentChoice5', alignmentChoice.value);
+			}
+
+			// Функція обробки події mouseout
+			function handleMouseOut() {
+				// Вирівнювання зправа при mouseout
+				block5.style.textAlign = "right";
+			}
+			function handleMouseOver() {
+				block5.style.textAlign = "";
+			}
+		}
+
+		function createForm() {
+    // Отримати вибраний блок
+    var blockSelector = document.getElementById('blockSelector');
+    var selectedBlockId = blockSelector.value;
+
+    // Отримати контейнер для форми
+    var formContainer = document.getElementById('formContainer' + selectedBlockId);
+
+    // Очистити всі контейнери форм перед створенням нової форми
+    var allFormContainers = document.querySelectorAll('[id^="formContainer"]');
+    allFormContainers.forEach(function(container) {
+        container.innerHTML = '';
+    });
+
+    // Якщо обраний блок - "Блок 1", то створюємо та додаємо форму
+    // if (selectedBlockId === 'block1') {
+        // Створити форму та додати її до вибраного блоку
+        var form = document.createElement('form');
+        form.innerHTML = '<label for="inputField">Введіть дані:</label>' +
+                          '<input type="text" id="inputField">' +
+                          '<button type="button" onclick="submitForm(\'' + selectedBlockId + '\')">Відправити</button>';
+
+        formContainer.appendChild(form);
+    // }
+}
+
+
+function submitForm(blockId) {
+    // Отримати введені дані
+    var inputField = document.getElementById('inputField');
+    var inputData = inputField.value;
+
+    // Отримати вибраний блок
+    var selectedBlock = document.getElementById(blockId);
+
+    // Створити новий елемент для відображення введених даних
+    var resultElement = document.createElement('p');
+
+    // Додати новий елемент до вибраного блоку
+    selectedBlock.appendChild(resultElement);
+
+    // Очистити поле вводу
+    inputField.value = '';
+	var list = localStorage.getItem('list');
+	if(!list){
+		list = '';
+	}
+	
+    var listElement = document.createElement('ol');
+	var listItem = document.createElement('li');
+	listItem.textContent = inputData;
+	listElement.appendChild(listItem);
+	
+	localStorage.setItem('list', list + ',' + inputData);
+    selectedBlock.appendChild(listElement);
+}
+
+
+		</script>
+		
 	</body>
 </html>

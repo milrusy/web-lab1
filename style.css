@@ -48,6 +48,7 @@ a{
 
 #block1 {
   display: flex;
+  flex-direction: column;
   align-items: center;
   background-color: #A01D26;
   padding-left: 4.17%;
@@ -65,6 +66,8 @@ a{
 }
 
 #block3{
+  display: flex;
+  flex-direction: column;
   background-color: #acbebe;
   text-align: center;
   justify-content: center;
@@ -82,6 +85,8 @@ a{
 }
 
 #block5{
+  display: flex;
+  flex-direction: column;
   background-color: #f4f4ef;
   font-size: large;
   text-align: center;
@@ -91,6 +96,8 @@ a{
 }
 
 #block6{
+  display: flex;
+  flex-direction: column;
   background-color: #acbebe;
   text-align: center;
   justify-content: center;
@@ -99,6 +106,8 @@ a{
 }
 
 #block7{
+  display: flex;
+  flex-direction: column;
   background-color: #A01D26;
   text-align: start;
   justify-content: start;
